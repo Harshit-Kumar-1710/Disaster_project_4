@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #1A73E8;
+  --primary-light: #D2E3FC;
+  --primary-dark: #1967D2;
+  --safety-color: #34A853;
+  --safety-light: #CEEAD6;
+  --safety-dark: #168039;
+  --warning-color: #FBBC04;
+  --warning-light: #FEF7E0;
+  --warning-dark: #F29900;
+  --danger-color: #EA4335;
+  --danger-light: #FADAD7;
+  --danger-dark: #C5221F;
+  --gray-100: #F8F9FA;
+  --gray-200: #F1F3F4;
+  --gray-300: #DADCE0;
+  --gray-400: #BDC1C6;
+  --gray-500: #9AA0A6;
+  --gray-600: #80868B;
+  --gray-700: #5F6368;
+  --gray-800: #3C4043;
+  --gray-900: #202124;
+
+  --shadow-sm: 0 1px 2px 0 rgba(60, 64, 67, 0.05);
+  --shadow-md: 0 2px 4px 0 rgba(60, 64, 67, 0.1);
+  --shadow-lg: 0 4px 8px 0 rgba(60, 64, 67, 0.15);
+  --shadow-xl: 0 8px 16px 0 rgba(60, 64, 67, 0.2);
+}
+
+body, html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-sm;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.8s;
+}
+
+.btn:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-800 hover:bg-gray-200 active:bg-gray-300;
+}
+
+.btn-success {
+  @apply bg-green-600 text-white hover:bg-green-700 active:bg-green-800;
+}
+
+.btn-warning {
+  @apply bg-yellow-500 text-white hover:bg-yellow-600 active:bg-yellow-700;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700 active:bg-red-800;
+}
+
+.btn-sos {
+  @apply bg-red-600 text-white;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(234, 67, 53, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(234, 67, 53, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(234, 67, 53, 0);
+  }
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-md overflow-hidden transition-shadow duration-300;
+}
+
+.card:hover {
+  @apply shadow-lg;
+}
+
+.input-group {
+  @apply mb-4;
+}
+
+.input-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.input-field {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900 
+  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+  transition-all duration-200;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Node and Edge Styles for Graph */
+.node {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.node:hover {
+  filter: brightness(1.2);
+}
+
+.node-safe {
+  fill: var(--safety-color);
+}
+
+.node-danger {
+  fill: var(--danger-color);
+}
+
+.node-warning {
+  fill: var(--warning-color);
+}
+
+.node-normal {
+  fill: var(--primary-color);
+}
+
+.node-current {
+  stroke: var(--primary-dark);
+  stroke-width: 3px;
+}
+
+.edge {
+  stroke: var(--gray-400);
+  stroke-width: 2;
+}
+
+.edge-path {
+  stroke: var(--primary-color);
+  stroke-width: 4;
+  stroke-dasharray: 5,5;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+.edge-blocked {
+  stroke: var(--danger-color);
+  stroke-width: 2;
+}
+
+.tooltip {
+  @apply absolute bg-gray-900 text-white text-xs rounded-md py-1 px-2 shadow-lg z-50;
+  pointer-events: none;
+}

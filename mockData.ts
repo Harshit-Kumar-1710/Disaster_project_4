@@ -1,0 +1,46 @@
+import { GraphType } from '../types/graph';
+
+// Mock graph data for demonstration
+export const mockGraph: GraphType = {
+  nodes: {
+    'n1': { id: 'n1', name: 'Main Building', type: 'normal' },
+    'n2': { id: 'n2', name: 'West Entrance', type: 'normal' },
+    'n3': { id: 'n3', name: 'East Entrance', type: 'normal' },
+    'n4': { id: 'n4', name: 'North Parking', type: 'warning', description: 'Potential hazard in this area' },
+    'n5': { id: 'n5', name: 'South Courtyard', type: 'normal' },
+    'n6': { id: 'n6', name: 'Emergency Shelter A', type: 'safe', description: 'Designated safe zone with supplies' },
+    'n7': { id: 'n7', name: 'Emergency Shelter B', type: 'safe', description: 'Designated safe zone with medical staff' },
+    'n8': { id: 'n8', name: 'Generator Room', type: 'danger', description: 'Hazardous area - avoid if possible' },
+    'n9': { id: 'n9', name: 'Cafeteria', type: 'normal' },
+    'n10': { id: 'n10', name: 'Library', type: 'normal' },
+    'n11': { id: 'n11', name: 'Science Building', type: 'warning', description: 'Potential chemical hazard' },
+    'n12': { id: 'n12', name: 'Sports Field', type: 'safe', description: 'Open area safe zone' },
+    'n13': { id: 'n13', name: 'Auditorium', type: 'normal' },
+    'n14': { id: 'n14', name: 'Admin Building', type: 'normal' },
+    'n15': { id: 'n15', name: 'Electrical Room', type: 'danger', description: 'High voltage - emergency personnel only' },
+  },
+  edges: {
+    'e1': { id: 'e1', source: 'n1', target: 'n2', weight: 2 },
+    'e2': { id: 'e2', source: 'n1', target: 'n3', weight: 2 },
+    'e3': { id: 'e3', source: 'n1', target: 'n4', weight: 3 },
+    'e4': { id: 'e4', source: 'n1', target: 'n5', weight: 3 },
+    'e5': { id: 'e5', source: 'n2', target: 'n6', weight: 4, status: 'open' },
+    'e6': { id: 'e6', source: 'n3', target: 'n7', weight: 5 },
+    'e7': { id: 'e7', source: 'n4', target: 'n8', weight: 2, status: 'blocked' },
+    'e8': { id: 'e8', source: 'n5', target: 'n9', weight: 1 },
+    'e9': { id: 'e9', source: 'n9', target: 'n10', weight: 2 },
+    'e10': { id: 'e10', source: 'n10', target: 'n11', weight: 3 },
+    'e11': { id: 'e11', source: 'n11', target: 'n12', weight: 4 },
+    'e12': { id: 'e12', source: 'n9', target: 'n13', weight: 3 },
+    'e13': { id: 'e13', source: 'n10', target: 'n14', weight: 2 },
+    'e14': { id: 'e14', source: 'n14', target: 'n15', weight: 1 },
+    'e15': { id: 'e15', source: 'n13', target: 'n14', weight: 2 },
+    'e16': { id: 'e16', source: 'n13', target: 'n12', weight: 5 },
+    'e17': { id: 'e17', source: 'n5', target: 'n7', weight: 6 },
+    'e18': { id: 'e18', source: 'n3', target: 'n9', weight: 4 },
+    'e19': { id: 'e19', source: 'n2', target: 'n10', weight: 7 },
+    'e20': { id: 'e20', source: 'n6', target: 'n12', weight: 8 },
+    'e21': { id: 'e21', source: 'n7', target: 'n12', weight: 9 },
+    'e22': { id: 'e22', source: 'n12', target: 'n14', weight: 4 },
+  }
+};
